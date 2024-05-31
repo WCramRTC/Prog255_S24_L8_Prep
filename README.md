@@ -13,6 +13,50 @@ int highScore = PlayerPrefs.GetInt("HighScore", 0);
 string playerName = PlayerPrefs.GetString("PlayerName", "Unknown");
 ```
 
+Locations to be found at:
+
+In Unity, PlayerPrefs are saved in different locations depending on the operating system:
+
+### Windows
+On Windows, PlayerPrefs are stored in the registry at the following location:
+```
+HKEY_CURRENT_USER\Software\[CompanyName]\[ProductName]
+```
+
+### macOS
+On macOS, PlayerPrefs are saved in a file located in:
+```
+~/Library/Preferences/[CompanyName]/[ProductName].plist
+```
+
+### Linux
+On Linux, PlayerPrefs are stored in a file located at:
+```
+~/.config/unity3d/[CompanyName]/[ProductName]/prefs
+```
+
+### iOS
+On iOS, PlayerPrefs are saved in:
+```
+/Library/Preferences/[Bundle Identifier].plist
+```
+
+### Android
+On Android, PlayerPrefs are saved in the application's internal storage, typically at:
+```
+/data/data/[bundle identifier]/shared_prefs/[bundle identifier].xml
+```
+
+### WebGL
+For WebGL builds, PlayerPrefs are saved in the browser's local storage under:
+```
+localStorage
+```
+
+In all cases, `[CompanyName]` and `[ProductName]` refer to the names set in Unity's Player Settings, and `[Bundle Identifier]` is the unique identifier for the application.
+
+---
+
 ### 2. **Saving to a File**
 For more complex data, you can save to a file using `System.IO`. You can serialize your data into JSON, XML, or a binary format.
 
